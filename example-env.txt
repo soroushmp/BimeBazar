@@ -1,0 +1,6 @@
+SECRET_KEY='django-insecure-r9v*5o8u&p#2xt0%e4_#jroq%&zmcf2!@4ds33t4#7&os8%xpp'
+DEBUG=True
+
+DB_NAME=b2_reads
+DB_USER=root
+DB_PASSWORD=root
