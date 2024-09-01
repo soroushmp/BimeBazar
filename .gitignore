@@ -125,11 +125,7 @@ cython_debug/
 
 *.zip
 *.sqlite3
-/BridalLive.json
-/Csv_files
-/All.csv
-/Terani Couture.csv
-/Primavera Couture.csv
-/Chic & Holland.csv
 *.csv
 *.pdf
+site/static/
+site/media/
