@@ -1,0 +1,80 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36" version="24.7.8">
+  <diagram name="Page-1" id="37c4rPpetWpp668Vft7c">
+    <mxGraphModel dx="1050" dy="557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-2" value="" style="rounded=1;whiteSpace=wrap;html=1;gradientColor=none;" vertex="1" parent="1">
+          <mxGeometry x="160" y="10" width="680" height="340" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-3" value="Ubuntu 24 (LTS)" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="260" y="10" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=0;exitDx=0;exitDy=0;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-4" target="HbDaZ_3BGGFOPa__FSR8-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;exitX=0.5;exitY=1;exitDx=0;exitDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-4" target="HbDaZ_3BGGFOPa__FSR8-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-4" value="Nginx&lt;br&gt;(Reverse Proxy)" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="180" y="130" width="100" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-5" value="Client" style="ellipse;whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="20" y="140" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-5" target="HbDaZ_3BGGFOPa__FSR8-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-9" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;endArrow=none;endFill=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-8">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="130" y="180" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-8" value="If we have to deploy in server we need to configure DNS system&lt;br&gt;(Like Bind9)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="10" y="270" width="140" height="120" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-10" value="Static &amp;amp; Media Files" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="70" width="90" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-12" target="HbDaZ_3BGGFOPa__FSR8-16">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-21" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;startArrow=classic;startFill=1;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-12" target="HbDaZ_3BGGFOPa__FSR8-20">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-12" value="Backend Framework/Logics" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="442.5" y="240" width="115" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-15" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;startArrow=classic;startFill=1;endArrow=none;endFill=0;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-14">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="260" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-14" value="If we have to implement user interface (Front-end) we need to configure and implement front-end structure&lt;br&gt;&lt;br&gt;Solutions:&lt;br&gt;Server-side rendering: Jinja2 Template Engine, Django Template Engine&lt;br&gt;&lt;br&gt;&lt;div&gt;Use endpoints and Js based request management like Axios, Ajax or XHRRequest to render data client-side&lt;/div&gt;&lt;div&gt;&lt;br&gt;&lt;/div&gt;&lt;div&gt;Use Front-end frameworks like vue.js, react or angular.js&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="200" y="380" width="160" height="290" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-16" target="HbDaZ_3BGGFOPa__FSR8-24">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-16" value="Database" style="whiteSpace=wrap;html=1;aspect=fixed;" vertex="1" parent="1">
+          <mxGeometry x="700" y="110" width="80" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-18" value="Docker Environment" style="text;html=1;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;rotation=-45;" vertex="1" parent="1">
+          <mxGeometry x="160" y="24" width="60" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-20" value="Redis&lt;br&gt;(In Memory Database)&lt;br&gt;(Caching System)" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="432.19" y="130" width="135.62" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="HbDaZ_3BGGFOPa__FSR8-22" target="HbDaZ_3BGGFOPa__FSR8-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-22" value="For Backend Framework/Logics we have several solutions.&lt;br&gt;&lt;br&gt;Django: Complete Infrastructure of all task (Authentication, Authorization, ORM, Migration System, Dynamic Documentation, Test, etc)&lt;br&gt;&lt;br&gt;FastAPI: One of the best performance frameworks for implement this task&lt;div&gt;We must use pynadtic for data validation, alembic for Migration System,&lt;br&gt;SQLAlchemy as ORM and etc&lt;br&gt;&lt;br&gt;Flask: It&#39;s a microframework, i hardly recommend use FastAPI instead of Flask because it&#39;s hasn&#39;t lots of features and performance of FastAPI is better than Flask&lt;br&gt;&lt;br&gt;&lt;br&gt;Recommendation for this task due to priorities:&lt;br&gt;(Development Time &amp;gt; Optimized Performance Project)&lt;br&gt;&lt;br&gt;Use DRF to implement core logics like database structure, authentication and authorization, documentation, migration and ORM using built-in features&lt;br&gt;&lt;/div&gt;" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="380" y="380" width="340" height="400" as="geometry" />
+        </mxCell>
+        <mxCell id="HbDaZ_3BGGFOPa__FSR8-24" value="We have several options for DBMS and DB Engine selection:&lt;br&gt;&lt;br&gt;sqlite3: not suggested for production projects (only for development and education) - File Base&lt;br&gt;&lt;br&gt;Mysql, MariaDB, SQL Server, Pervasive SQL, etc...&lt;br&gt;Good Structures but low compatibility with Django&lt;br&gt;(We must use ODBC of them directly)&lt;br&gt;&lt;br&gt;NoSQL databases&lt;br&gt;We can use relations to optimize the process of calculating, so it&#39;s not recommended although Databases like MongoDB are horizontally scalable&lt;br&gt;&lt;br&gt;Postgresql&lt;br&gt;&amp;nbsp;Recommended DBMS for this task.&lt;br&gt;It&#39;s Fully compatible with Django ORM and has modern features" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="820" width="440" height="260" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
