@@ -1,4 +1,6 @@
+from datetime import timedelta
 from pathlib import Path
+
 from decouple import config
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,13 +10,32 @@ DEBUG = config("DEBUG", default=False, cast=bool)
 ALLOWED_HOSTS = ['*']
 
 INSTALLED_APPS = [
+    # Custom Admin Interface
+    "admin_interface",
+    "colorfield",
+
+    # Django Apps
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+
+    # 3rd Party
+
+    # Drf
     'rest_framework',
+    # JWT
+    'rest_framework_simplejwt',
+
+    # Documentation
+    'drf_yasg',
+
+    # Auto Media Cleaner
+    'django_cleanup',
+
+    # My Apps
     'core',
 ]
 
@@ -48,6 +69,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'B2Reads.wsgi.application'
 
+# Config Data Base Postgresql
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
@@ -74,12 +96,49 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'fa'
+LANGUAGE_CODE = 'en'
 TIME_ZONE = 'Asia/Tehran'
 USE_I18N = True
 USE_TZ = True
+
+# STATIC & MEDIA SETTINGS
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 STATIC_ROOT = BASE_DIR / 'static'
 MEDIA_ROOT = BASE_DIR / 'media'
+
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# Drf Configs
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+}
+
+# JWT Configs
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
+    'ROTATE_REFRESH_TOKENS': True,
+    'BLACKLIST_AFTER_ROTATION': True,
+    'AUTH_HEADER_TYPES': ('Bearer',),
+    'AUTH_TOKEN_CLASSES': ('rest_framework_simplejwt.tokens.AccessToken',),
+}
+
+# Documentation Configs
+SWAGGER_SETTINGS = {
+    'SECURITY_DEFINITIONS': {
+        'Bearer': {
+            'type': 'apiKey',
+            'in': 'header',
+            'name': 'Authorization',
+            'description': 'JWT authentication. Use `Bearer <token>` as the value.',
+        },
+    },
+    'SECURITY': [
+        {
+            'Bearer': []
+        }
+    ],
+}
