@@ -32,7 +32,7 @@ urlpatterns = [
 
     # Post Data Endpoint(s)
     path('bookmarks/', BookmarkManageView.as_view(), name='bookmark-manage'),
-    path('ratings/', RatingManageView.as_view(), name='rating-create-or-update'),
+    path('ratings/', RatingManageView.as_view(), name='rating-manage'),
 
     # Documentation
     path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),

@@ -6,7 +6,7 @@ from rest_framework.test import APIClient, APITestCase
 from rest_framework_simplejwt.tokens import RefreshToken
 
 from .models import Book, Rating
-from .serializers import BookSerializer, BookDetailSerializer, RatingSerializer
+from .serializers import BookSerializer, BookDetailSerializer
 
 
 class BookViewsTest(APITestCase):
@@ -24,11 +24,11 @@ class BookViewsTest(APITestCase):
         self.client.credentials(HTTP_AUTHORIZATION='Bearer ' + self.token)
 
         # Create test books
-        self.book1 = Book.objects.create(title='Book 1', author='Author 1')
-        self.book2 = Book.objects.create(title='Book 2', author='Author 2')
+        self.book1 = Book.objects.create(title='Book 1', summary='1Lorem Ipsum dolor sit amet consectetur')
+        self.book2 = Book.objects.create(title='Book 2', summary='2Lorem Ipsum dolor sit amet consectetur')
 
         # Create test URL paths
-        self.book_list_url = reverse('book-list')  # Assuming you have named the URL 'book-list'
+        self.book_list_url = reverse('book-list')
         self.book_detail_url = reverse('book-detail', args=[self.book1.id])
         self.bookmark_manage_url = reverse('bookmark-manage')
         self.rating_manage_url = reverse('rating-manage')
@@ -57,7 +57,14 @@ class BookViewsTest(APITestCase):
         cache_key = f'book_detail_{self.book1.id}'
         cached_book = cache.get(cache_key)
         self.assertIsNotNone(cached_book)
-        self.assertEqual(cached_book, serializer.data)
+        self.assertEqual(cached_book['id'], serializer.data['id'])
+        self.assertEqual(cached_book['title'], serializer.data['title'])
+        self.assertEqual(cached_book['summary'], serializer.data['summary'])
+        self.assertEqual(cached_book['reviews_count'], serializer.data['reviews_count'])
+        self.assertEqual(cached_book['scores_count'], serializer.data['scores_count'])
+        self.assertEqual(cached_book['scores_mean'], serializer.data['scores_mean'])
+        self.assertEqual(cached_book['scores_count_group_by_number'], serializer.data['scores_count_group_by_number'])
+        self.assertEqual(cached_book['ratings'], serializer.data['ratings'])
 
     def test_post_bookmark_add_and_remove(self):
         # Add Bookmark
@@ -112,4 +119,4 @@ class BookViewsTest(APITestCase):
         }
         response = self.client.post(reverse('register-login'), data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertFalse(response.data['created'])  # Since the user is created and logged in
+        self.assertTrue(response.data['created'])

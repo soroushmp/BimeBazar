@@ -75,8 +75,8 @@ class BookDetailSerializer(serializers.ModelSerializer):
         """
             Get count of unique scores using Rating instances with scores field not null.
         """
-        return obj.ratings.filter(score__isnull=False).values('score').annotate(
-            count=Count('score')).values('score', 'count')
+        return list(obj.ratings.filter(score__isnull=False).values('score').annotate(
+            count=Count('score')).values('score', 'count'))
 
     def get_ratings(self, obj):
         """
