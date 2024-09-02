@@ -12,5 +12,6 @@ RUN apt-get upgrade -y
 RUN pip3 install --upgrade pip && pip3 install -r requirements.txt
 
 RUN python manage.py load_initial_data
+RUN python manage.py test
 
 EXPOSE 8000
