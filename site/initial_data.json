@@ -1,0 +1,199 @@
+[
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$VP3lnbrAttQKN6otr4ElfL$cnAGRAQ0AmBWp6RkuaIz3SkhecoEdDcQ8WLqzRLCLSo=",
+    "last_login": "2024-09-02T07:05:42.246Z",
+    "is_superuser": true,
+    "username": "root",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-09-02T07:05:27.926Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 2,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$Lvxqzo4Tur6uTI2LcKTXwM$Pr7V0Jg7U8N5ba7P6qIETnmeQigwyNmCnSOmQ7MROlU=",
+    "last_login": null,
+    "is_superuser": true,
+    "username": "user1@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2024-09-02T07:07:03Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 3,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$j4fdixSJm5Gs76rNLdRMrO$PsNm10BF0tFgKSpDABA7SV1ymWYSgkHL0+W3vtbpKSQ=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user2@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-09-02T07:07:23.080Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 4,
+  "fields": {
+    "password": "pbkdf2_sha256$870000$Iuuz2g6Axzys3T7rIHvGbX$aW7wAhSrwMFP0hrwJUCJ0J3Qf6ObqCRKJgnTD7y6xjI=",
+    "last_login": null,
+    "is_superuser": false,
+    "username": "user3@gmail.com",
+    "first_name": "",
+    "last_name": "",
+    "email": "",
+    "is_staff": false,
+    "is_active": true,
+    "date_joined": "2024-09-02T07:07:35.008Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "core.book",
+  "pk": 1,
+  "fields": {
+    "title": "Book1",
+    "summary": "Book1: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia,\r\nmolestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum\r\nnumquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium\r\noptio, eaque rerum! Provident similique",
+    "bookmarks": [
+      2,
+      3
+    ]
+  }
+},
+{
+  "model": "core.book",
+  "pk": 2,
+  "fields": {
+    "title": "Book2",
+    "summary": "Book2: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique",
+    "bookmarks": [
+      4
+    ]
+  }
+},
+{
+  "model": "core.book",
+  "pk": 3,
+  "fields": {
+    "title": "Book3",
+    "summary": "Book3: Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime mollitia, molestiae quas vel sint commodi repudiandae consequuntur voluptatum laborum numquam blanditiis harum quisquam eius sed odit fugiat iusto fuga praesentium optio, eaque rerum! Provident similique",
+    "bookmarks": [
+      2,
+      4
+    ]
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 1,
+  "fields": {
+    "user": 2,
+    "book": 1,
+    "score": 4,
+    "review": ""
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 2,
+  "fields": {
+    "user": 3,
+    "book": 1,
+    "score": null,
+    "review": "Not Good"
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 3,
+  "fields": {
+    "user": 4,
+    "book": 1,
+    "score": 5,
+    "review": "Perfect"
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 4,
+  "fields": {
+    "user": 3,
+    "book": 2,
+    "score": 4,
+    "review": ""
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 5,
+  "fields": {
+    "user": 2,
+    "book": 2,
+    "score": null,
+    "review": "Good"
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 6,
+  "fields": {
+    "user": 4,
+    "book": 2,
+    "score": 5,
+    "review": "Perfect"
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 7,
+  "fields": {
+    "user": 4,
+    "book": 3,
+    "score": 1,
+    "review": ""
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 8,
+  "fields": {
+    "user": 3,
+    "book": 3,
+    "score": 2,
+    "review": "Not Good"
+  }
+},
+{
+  "model": "core.rating",
+  "pk": 9,
+  "fields": {
+    "user": 2,
+    "book": 3,
+    "score": null,
+    "review": "Awful"
+  }
+}
+]
