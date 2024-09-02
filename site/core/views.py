@@ -1,4 +1,5 @@
 from django.contrib.auth import authenticate, login
+from django.core.cache import cache
 from django.http import Http404
 from drf_yasg import openapi
 from drf_yasg.utils import swagger_auto_schema
@@ -7,6 +8,7 @@ from rest_framework.permissions import IsAuthenticated
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
+from B2Reads.settings import CACHE_TTL
 from .models import Book, Rating
 from .serializers import BookSerializer, RatingSerializer, RegisterLoginSerializer, BookDetailSerializer, \
     BookmarkSerializer
@@ -18,9 +20,17 @@ class BookList(APIView):
     """
 
     def get(self, request, format=None):
-        books = Book.objects.all()
-        serializer = BookSerializer(books, many=True, context={'request': request})
-        return Response(serializer.data)
+        cache_key = 'all_books'
+        cache_time = CACHE_TTL
+        books = cache.get(cache_key)
+
+        if not books:
+            books = Book.objects.all()
+            serializer = BookSerializer(books, many=True, context={'request': request})
+            books = serializer.data
+            cache.set(cache_key, books, cache_time)
+
+        return Response(books)
 
 
 class BookDetail(APIView):
@@ -35,9 +45,17 @@ class BookDetail(APIView):
             raise Http404
 
     def get(self, request, id, format=None):
-        book = self.get_object(id)
-        serializer = BookDetailSerializer(book)
-        return Response(serializer.data)
+        cache_key = f'book_detail_{id}'
+        cache_time = CACHE_TTL
+        book = cache.get(cache_key)
+
+        if not book:
+            book_instance = self.get_object(id)
+            serializer = BookDetailSerializer(book_instance)
+            book = serializer.data
+            cache.set(cache_key, book, cache_time)
+
+        return Response(book)
 
 
 class BookmarkManageView(APIView):
@@ -71,9 +89,13 @@ class BookmarkManageView(APIView):
             book_id = serializer.validated_data['book']
             if user.books.filter(id=book_id).exists():
                 user.books.remove(book_id)
+                cache.delete('all_books')
+                cache.delete(f'book_detail_{book_id}')
                 return Response({'detail': 'Bookmark Removed.'}, status=status.HTTP_200_OK)
             else:
                 user.books.add(book_id)
+                cache.delete('all_books')
+                cache.delete(f'book_detail_{book_id}')
                 return Response({'detail': 'Bookmark Added.'}, status=status.HTTP_200_OK)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
@@ -134,6 +156,9 @@ class RatingManageView(APIView):
 
             if book in request.user.books.all():
                 request.user.books.remove(book)
+
+            cache.delete('all_books')
+            cache.delete(f'book_detail_{book.id}')
 
             updated_serializer = RatingSerializer(rating)
             return Response(updated_serializer.data, status=status.HTTP_200_OK)

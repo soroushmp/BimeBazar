@@ -32,6 +32,7 @@ END
 python manage.py makemigrations
 python manage.py migrate --noinput
 python manage.py collectstatic --noinput
-
+python manage.py load_initial_data
+python manage.py test
 
 exec uwsgi --ini ./uwsgi.ini
